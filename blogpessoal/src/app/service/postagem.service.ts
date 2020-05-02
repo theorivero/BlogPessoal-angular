@@ -10,7 +10,7 @@ export class PostagemService {
   constructor(private http: HttpClient) { }
 
   getAllpostagens(){
-    return this.http.get('http://31.220.57.14:8000/postagens')
+    return this.http.get('http://31.220.57.14:8080/postagens')
   }
 
 }

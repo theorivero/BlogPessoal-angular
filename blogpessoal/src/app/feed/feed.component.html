@@ -45,6 +45,21 @@
       <hr class="mt-5 mb-5">
 
       <h3 class="text-monospace text-center">Minhas Postagens</h3>
+
+      <div class="card mb-4" *ngFor="let post of listaPostagens">
+
+        <div class="card-header">
+          <h5 class="card-title">{{post.titulo}}</h5>
+        </div>
+
+        <div class="card-body">
+          <p class="card-text">{{post.texto}}</p>
+          <small class="form-text m-0 text-muted mb-3 text-monospace">
+            Postado em {{post.data | date: 'dd/MM/yyyy'}} as {{post.data | date: 'HH:mm'}}
+          </small>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
