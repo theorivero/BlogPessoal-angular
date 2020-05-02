@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  listaPostagens: Postagem[]
+  listaPostagens: Postagem[];
+  postagem: Postagem = new Postagem;
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private PostagemService: PostagemService) { }
@@ -22,6 +23,13 @@ export class FeedComponent implements OnInit {
   findallPostagens() {
     this.PostagemService.getAllpostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp;
+    })
+  }
+
+  publicar(){
+    this.PostagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+      location.assign('/feed')
     })
   }
 
